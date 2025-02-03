@@ -13,229 +13,169 @@
     <meta charset="UTF-8" />
     <title>Make My Schedule</title>
     <style>
-    .collapsible {
-      background-color: #777;
-      color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-    
-    .active, .collapsible:hover {
-      background-color: #555;
-    }
-    
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: #f1f1f1;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #8e3b46;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        #topbar {
+            position:fixed;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 80px;
+            line-height: 80px;
+            background-color: #8e3b46;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 3;
+        }
+        #topLogo {
+            height: 45%;
+            margin: 0 10px 10px 28px;
+        }
+        #buyNow {
+            height: 42px;
+            font-size: 16pt;
+            background-color: #018E42;
+            color: white;
+            transition: transform 0.05s ease, filter 0.05s ease;
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1.5px solid #0FB45B;
+            border-radius: 4px;
+            padding:8pt 26px 8pt 26px;
+            line-height: 0;
+            cursor: pointer;
+            font-weight: 900;
+            filter:drop-shadow(0.5px 1px rgb(1, 70, 14)) drop-shadow(1px 2px rgb(1, 70, 14)) drop-shadow(1.5px 3px rgb(1, 70, 14));
+        }
+        #buyNow:active {
+            transform: translate(3px, calc( 6px - 50%));
+            transition: transform 0.05s ease, filter 0.05s ease;
+            filter: none;
+        }
+        #topbar * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        #showcase {
+            position:fixed;
+            top:80px;
+            left:0;
+            width: 100vw;
+            background-color: #8e3b46;
+            color: white;
+            font-size: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+        #title {
+            text-wrap: balance;
+            padding-top: 6vh;
+            padding-bottom: 4vh;
+        }
+        #title, #exampleSchedule {
+            filter: drop-shadow(2px 4px 4px #4E0C14);
+        }
+        #exampleSchedule {
+            width: 70vw;
+            border-radius: 22px;
+        }
+        #mainContent {
+            width: 50vw;
+            padding: calc(14vw - 24px) 25vw 15vh 25vw;
+            background-color: #F3F3F3;
+            font-size: 20px;
+            font-weight: 500;
+            mask: url(#cupMask);
+        }
+        #mainSuper {
+            position:absolute;
+            top:50vh;
+            left:0;
+            margin:0;
+            filter: drop-shadow(0 -10px 30px rgba(69, 2, 2, 0.3));
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 900;
+            padding: 24px 0 2px 0;
+        }
+        br {
+            display: block;
+            content: " ";
+            margin:20px 0 0;
+        }
+        a {
+            color: inherit;
+            text-decoration: inherit;
+            height: 100%;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="images/icon-128-color.png">
   </head>
   <body>
-This was made by a student at School of Mines. Make My Schedule is not an official Ellucian nor School of Mines product, nor is it officially endorsed.
-
-<h3>What is Schedule Computer?</h3>
-It's exactly what it sounds like: A Chrome extension that automatically creates your dream schedule!
-<h3>How do I use it?</h3>
-Click on the <img src="images/icon-128-color.png" style="width:12pt;"> icon in the top right of your browser. You should see a screen like this:<br>
-<img src="images/screenshot.jpg" style="height:50vh"><br>
-Here, you input all your needs, wants, and preferences.
-
-<h3>What does this setting mean?</h3>
-
-<button type="button" class="collapsible">Go to Registration</button>
-<div class="content">
-    This button opens a new tab on the "Select a term" page for "Browse Classes". This is where you can start generating schedules.
-</div>
-<button type="button" class="collapsible">Term</button>
-<div class="content">
-    Format: "(Semester) (Year)"
-    This is the term you are planning for, such as Spring 2025 or Fall 2024. It will default to Spring 2025 if nothing is provided.
-    If you have "Auto-Input Term" turned on, this term will be automatically selected on pages for you. Otherwise, this has no effect.
-    It is not case-sensitive.
-</div>
-<button type="button" class="collapsible">Auto-Input Term</button>
-<div class="content">
-    Format: On/Off
-    Suggested: On
-    When turned on, the "Term" you typed in above will be automatically selected on pages for you. When turned off, you'll have to select a term manually.
-</div>
-<button type="button" class="collapsible">Classes</button>
-<div class="content">
-    Format: "(Subject)(Course Number), (Subject)(Course Number), (Subject)(Course Number), [etc...]"
-    Here is where you type in the classes that must be in your schedule. Type in the subject and course number (for example, Chemistry 1 is CHGN121). Separate classes by a comma (spaces are ignored).
-    It is not case-sensitive.
-    If "Auto-Input Classes" is turned on, these will be automatically inputted into pages for you. If not, this has no effect.
-</div>
-<button type="button" class="collapsible">Auto-Input Classes</button>
-<div class="content">
-    Format: On/Off
-    Suggested: On
-    When turned on, the "Classes" you typed in above will be automatically inputted on pages for you. When turned off, you'll have to type in classes manually.
-</div>
-<button type="button" class="collapsible">Auto-Read Table</button>
-<div class="content">
-    Format: On/Off
-    Suggested: On
-    When turned on, the table of class data will automatically be read and processed. If turned off, you must click "Read Table" manually at the top of the page to ingest class information.
-</div>
-<button type="button" class="collapsible">At least [_] open seats</button>
-<div class="content">
-    Format: Whole number
-    This is the minimum number of open seats a class can have to be put in your schedule. For example, a value of 5 means all classes must have 5 or more seats available right now. A value of 0 means even full classes should be put into your schedule.
-    Defaults to 3 if nothing is inputted. Open seats does not count waitlist seats. 
-</div>
-<button type="button" class="collapsible">Start after [_]</button>
-<div class="content">
-    Format: Time
-    This is the earliest time any classes can be. All classes will start at or after this time. For example, "8:30 AM" means no classes will be before 8:30 AM.
-    Defaults to midndight if nothing is inputted.
-</div>
-<button type="button" class="collapsible">End before [_]</button>
-<div class="content">
-    Format: Time
-    This is the latest time any classes can be. All classes will end at or before this time. For example, "6:30 PM" means no classes will be after 6:30 PM.
-    Defaults to midndight if nothing is inputted.
-</div>
-<button type="button" class="collapsible">Require Professors</button>
-<div class="content">
-    Format: "(Professor Name), (Professor Name), (Professor Name), [etc...]"
-    These are the professors you want to be in your schedule. If one of those professors is available for a class, it will require the one they teach. For example, let's say you type in "Bob Dylan", and he teaches Discrete Math. All discrete math classes not taught by him will be filtered out. But, since he doesn't teach Global Studies, it won't filter any of those out.
-    Separate professor names by a comma. The name must be a substring to count (for example, inputting "Bob" will match "Prof. Bob Dylan Jr." and "Jeffrey Bobbert"). Case sensistive.
-</div>
-<button type="button" class="collapsible">Require CRN</button>
-<div class="content">
-    Format: "(CRN), (CRN), (CRN), [etc...]"
-    These are the CRNs of classes you want to be in your schedule. If a schedule doesn't have that specific CRN in it, it will be fitlered out. If two CRNs for the same class are given, then either can be included.
-    Separate CRNs by a comma.
-</div>
-<button type="button" class="collapsible">Exclude Professors</button>
-<div class="content">
-    Format: "(Professor Name), (Professor Name), (Professor Name), [etc...]"
-    These are the professors you don't want to be in your schedule. Any classes taught by these professors will be filtered out.
-    Separate professor names by a comma. The name must be a substring to count (for example, inputting "Bob" will match "Prof. Bob Dylan Jr." and "Jeffrey Bobbert"). Case sensistive.
-</div>
-<button type="button" class="collapsible">Exclude CRN</button>
-<div class="content">
-    Format: "(CRN), (CRN), (CRN), [etc...]"
-    These are the CRNs of classes you don't want to be in your schedule. Any classes with these CRNs will be filtered out.
-    Separate CRNs by a comma.
-</div>
-<button type="button" class="collapsible">Exclude Building</button>
-<div class="content">
-    Format: "(Building name), (Building name), (Building name), [etc...]"
-    Type in any building names that you don't want in your schedule. Any classes held at these buildings will be filtered out. For example, inputting "CTLM, Marquez Hall" will filter out all classes held in the CTLM and Marquez Hall.
-    Separate building names by a comma. Case sensitive. Must be the full building name.
-</div>
-<button type="button" class="collapsible">Exclude From [_] to [_] [_]</button>
-<div class="content">
-    Format: Time, Time, Days
-    From the first time to the last time on the days selected will be blocked out. No classes can take place during these timeslots.
-</div>
-<button type="button" class="collapsible">Add Time</button>
-<div class="content">
-    Add a new blocked out timeslot.
-</div>
-<button type="button" class="collapsible">Remove Time</button>
-<div class="content">
-    Remove the last blocked out timeslot.
-</div>
-<button type="button" class="collapsible">[_] Spread Out - Dense</button>
-<div class="content">
-    Format: On/Off, Slider
-    Drag the slider left for a more scattered, spread out schedule. Drag the slider right for a densely packed schedule.
-    This is calculated by, for each day, subtracting the earliest class' starting time by the latest class' ending time, then taking the average.
-    Uncheck on the left to turn off sorting by density.
-</div>
-<button type="button" class="collapsible">[_] Earlier - Later</button>
-<div class="content">
-    Format: On/Off, Slider
-    Drag the slider left for an earlier schedule. Drag the slider right for a later schedule.
-    This is calculated by getting the time in the middle of each class and averaging them all.
-    Uncheck on the left to turn off sorting by lateness.
-</div>
-<button type="button" class="collapsible">[_] Varied - Consistent</button>
-<div class="content">
-    Format: On/Off, Slider
-    Drag the slider left for a highly varied schedule day-to-day. Drag the slider right for a very consistent schedule, where each day is similar.
-    This is calculated by counting how many classes overlap across the week in 10 minute chunks. More overlaps means daily schedules are more consistent.
-    Uncheck on the left to turn off sorting by consistency.
-</div>
-<button type="button" class="collapsible">[_] Any ratings - High ratings</button>
-<div class="content">
-    Format: On/Off, Slider
-    Drag the slider right to increase how important professor ratings are for sorting. Drag the slider left if professor ratings are not important.
-    This is calculated by averaging all the professor ratings for a schedule.
-    Uncheck on the left to turn off reading professor ratings.
-</div>
-<button type="button" class="collapsible">Lawless CRN</button>
-<div class="content">
-    Format: "(CRN), (CRN), (CRN), [etc...]"
-    Classes with these CRNs will ignore all rules and filters set above. For example, if you input "10423", the class with that CRN will be put in schedules even if it's during a blocked time, doesn't have enough seats open, etc.
-    Separate CRNs by a comma.
-</div>
-<button type="button" class="collapsible">Maximum Schedules to generate</button>
-<div class="content">
-    Format: Whole number
-    This is the maximum number of schedules that will be generated before stopping. For example, if you input 100, only 100 schedules will be generated. This can be helpful if you have a slow computer.
-    Defaults to 1 million.
-</div>
-<button type="button" class="collapsible">Pre-Randomize</button>
-<div class="content">
-    Format: On/Off
-    Suggested: On
-    When turned on, the order of classes will be randomized before generating or sorting schedules. This means that if two schedules are given equal scores when sorting, one will randomly be before the other. Also, if the maximum number of schedules is hit, then which ones are generated and which ones are skipped will be randomly selected.
-    This helps to ensure that not every student plans on taking the exact same schedule, when there are equally good alternatives. If turned off, their order will be purely deterministic.
-</div>
-<button type="button" class="collapsible">Zoom Out - Zoom In</button>
-<div class="content">
-    Format: Slider
-    This adjusts how zoomed in/out the schedule viewing is.
-</div>
-<button type="button" class="collapsible">Sort class alternatives by</button>
-<div class="content">
-    Format: Dropdown
-    Some classes have the exact same timeslot but different professors, seats, or classroom. These are shown as "alternatives" you can select on the top bar. This determines how those alternatives are sorted.
-    Seats open: Put alternatives with the most seats open first
-    Professor rating: Put alternatives with the highest professor rating first
-    Both: Equally weight seats open and professor ratings, then put the best first
-</div>
-<button type="button" class="collapsible">Save Preferences</button>
-<div class="content">
-    Save all the preferences above. If you're viewing a list of schedules, it will re-filter and re-sort schedules based on new preferences.
-</div>
-<button type="button" class="collapsible">Save Current Schedule</button>
-<div class="content">
-    Save the schedule you're viewing now. You can view, update, remove, and plan these schedules.
-</div>
-<button type="button" class="collapsible">Clear Data</button>
-<div class="content">
-    Clear all data you saved. This includes saved schedules, classes, filters, and everything else in the extension.
-</div>
-
-
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
+       
+      
   
-  for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-          content.style.display = "none";
-      } else {
-          content.style.display = "block";
-      }
-      });
-  }
-</script>
+    <div id="topbar">
+        <a href="https://make-my-schedule.com">
+            <img src="images/icon-128.png" id="topLogo"> Make My Schedule
+        </a>
+        <button id="buyNow">Buy Now</button>
+    </div>
+    <div id="showcase">
+        <p id="title">Make your perfect schedule <u>a reality</u></p>
+        <img src="images/example_schedule.png" id="exampleSchedule">
+    </div>
+    <div id="mainSuper">
+        <div id="mainContent">
+            <h1>What is Make My Schedule?</h1>
+
+            It's exactly what it sounds like: A Chrome extension that automatically creates your dream schedule! (and every other possible schedule, in case you're picky like us 😉)
+
+            <h1>How do I start?</h1>
+            First, download the Make My Schedule extension on Chrome. Pay a small price of $3.99. Follow simple instructions to select your school, and you're ready to go!
+
+            <h1>How do I use it?</h1>
+            In Make My Schedule, type in your term and class names. Use settings and sliders to fine-tune your preferences. Then, click "Go to Registration" to open your school's registration site. All the classes available will be read automatically. Every possible schedule will be generated, and sorted to your liking. You can flip through options with the number boxes on top.<br>
+            When you find one you like, open Make My Schedule and click "Save Schedule". Now, you can view, register, and plan this schedule.
+        </div>
+         <svg class="cup-mask-svg" xmlns="http://www.w3.org/2000/svg" width="100vw" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
+            <defs>
+              <mask id="cupMask" maskUnits="userSpaceOnUse">
+                <!-- A white rectangle covering the entire element -->
+                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                <!-- A black ellipse at the top, whose vertical radius is fixed to 30vh.
+                     The ellipse is centered horizontally (cx="50%") and its top edge is at y=0 (cy="0").
+                     The rx is set to half the element’s width (50%) so that the ellipse spans the full width. -->
+                <ellipse cx="50%" cy="0" rx="51%" ry="10vw" fill="black" />
+              </mask>
+            </defs>
+          </svg>
+    </div>
+    <script>
+        function reposition() {
+            let img = document.getElementById("exampleSchedule");
+            let rect = img.getBoundingClientRect();
+            let content = document.getElementById("mainSuper");
+            content.style.top = rect.y+rect.height/3+"px";
+        }
+        window.onload = function() {
+            reposition();
+        };
+        window.addEventListener("resize", ()=>{
+            reposition();
+        });
+        document.getElementById("buyNow").addEventListener("mouseup",()=>{
+            // window.open("https://www.google.com/search?q=buy+make+my+schedule+here!&rlz=1C5CHFA_enUS1119US1119&oq=buy+make+my+schedule+here!&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigAdIBCDM5MTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8", '_blank').focus();
+        });
+    </script>
   </body>
 </html>
