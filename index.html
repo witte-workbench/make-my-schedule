@@ -15,7 +15,8 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #F3F3F3;
+            background-color: #8e3b46;
+            overscroll-behavior: none;
         }
         body::-webkit-scrollbar {
             display: none;
@@ -161,40 +162,14 @@
           </svg>
     </div>
     <script>
-        var cutoff, cutoff2;
         function reposition() {
             let img = document.getElementById("exampleSchedule");
             let rect = img.getBoundingClientRect();
-            let content = document.getElementById("mainSuper");
-            content.style.top = rect.y+rect.height/3+"px";
-            cutoff = exampleSchedule.getBoundingClientRect().y;
-            let showcase = document.getElementById("showcase");
-            cutoff2 = showcase.getBoundingClientRect().y;
+            let sup = document.getElementById("mainSuper");
+            sup.style.top = rect.y+rect.height/3+"px";
         }
         window.onload = function() {
             reposition();
-        };
-        // fix overscroll bounce revealing stuff behind mainSuper
-        window.onscroll = function() {
-            let content = document.getElementById("mainSuper");
-            let rect = content.getBoundingClientRect();
-            let exampleSchedule = document.getElementById("exampleSchedule");
-            let showcase = document.getElementById("showcase");
-            if (rect.y+(window.innerWidth / 10)<cutoff && exampleSchedule.style.display != "none") {
-                exampleSchedule.style.display = "none";
-            } else if (exampleSchedule.style.display != "initial") {
-                exampleSchedule.style.display = "initial";
-            }
-            if (rect.y+(window.innerWidth / 10)<cutoff2 && showcase.style.display != "none") {
-                showcase.style.display = "none";
-            } else if (showcase.style.display != "initial") {
-                showcase.style.display = "initial";
-            }
-            if (rect.y<parseFloat(content.style.top) && document.body.style.background != "#F3F3F3") {
-                document.body.style.background = "#F3F3F3";
-            } else if (document.body.style.background != "#8e3b46") {
-                document.body.style.background = "#8e3b46";
-            }
         };
         window.addEventListener("resize", ()=>{
             reposition();
