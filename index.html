@@ -118,6 +118,31 @@
             text-decoration: inherit;
             height: 100%;
         }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        td, th {
+            word-wrap: break-word;
+            border-bottom:1px solid #8e3b46;
+            text-align: center;
+        }
+        td[class='green'] {
+            color: green;
+        }
+        td[class='orange'] {
+            color: darkorange;
+        }
+        td[class='red'] {
+            color: red;
+        }
+        td a {
+            text-decoration: underline;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 10%;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="images/icon-128-color.png">
   </head>
@@ -129,7 +154,7 @@
         <a href="https://make-my-schedule.com">
             <img src="images/icon-128.png" id="topLogo"> Make My Schedule
         </a>
-        <button id="buyNow">Buy Now</button>
+        <button id="buyNow">Get Now</button>
     </div>
     <div id="showcase">
         <p id="title">Make your perfect schedule <u>a reality</u></p>
@@ -142,12 +167,98 @@
             It's exactly what it sounds like: A Chrome extension that automatically creates your dream schedule! (and every other possible schedule, in case you're picky like us 😉)
 
             <h1>How do I start?</h1>
-            First, download the Make My Schedule extension on Chrome. Pay a small price of $3.99. Follow simple instructions to select your school, and you're ready to go!
+            First, download the Make My Schedule extension on Chrome. Pay a small price of $4.99. Follow simple instructions to select your school, and you're ready to go!
 
             <h1>How do I use it?</h1>
-            In Make My Schedule, type in your term and class names. Use settings and sliders to fine-tune your preferences. Then, click "Go to Registration" to open your school's registration site. All the classes available will be read automatically. Every possible schedule will be generated, and sorted to your liking. You can flip through options with the number boxes on top.<br>
+            In Make My Schedule, type in your term and class names. Use settings and sliders to fine-tune your preferences. Then, click "Make Schedules!" Your school's registration site will open, all the classes available will be read automatically. Every possible schedule will be generated, and sorted to your liking. You can flip through options with the number boxes on top.<br>
             When you find one you like, open Make My Schedule and click "Save Schedule". Now, you can view, register, and plan this schedule.
+
+            <h1>Is my school supported?</h1>
+            If your school uses Banner Self-Service (aka Ellucian), Make My Schedule should work! If not, you're out of luck. Note that MMS is student made and not officially supported by Ellucian nor any schools. Here is a list of tested and working schools:<br>
+            <table>
+                <tr>
+                    <th>School</th>
+                    <th>Works</th>
+                    <th>Link</th>
+                </tr>
+                <tr>
+                    <td>Colorado School of Mines</td>
+                    <td class="green">✓</td>
+                    <td><a href="https://reg-prod.mines.elluciancloud.com:8118/StudentRegistrationSsb/ssb/term/termSelection?mode=search">reg-prod.mines.elluciancloud.com</a></td>
+                </tr>
+                <tr>
+                    <td>Colorado State University</td>
+                    <td class="green">✓</td>
+                    <td><a href="https://ramweb.colostate.edu/registrar/Public/ClassSchedule.aspx">ramweb.colostate.edu</a></td>
+                </tr>
+                <tr>
+                    <td>Colorado Mesa University</td>
+                    <td class="green">✓</td>
+                    <td><a href="https://reg-prod.ec.coloradomesa.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search">reg-prod.ec</a></td>
+                </tr>
+                <tr>
+                    <td>University of Denver</td>
+                    <td class="green">✓</td>
+                    <td><a href="https://apps02.du.edu:4443/StudentRegistrationSsb/ssb/term/termSelection?mode=search">apps02.du.edu</a></td>
+                </tr>
+                <tr>
+                    <td>Metropollitan State University of Denver</td>
+                    <td class="green">✓</td>
+                    <td><a href="https://ssb.msudenver.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=search">ssb.msudenver.edu</a></td>
+                </tr>
+                <tr>
+                    <td>University of Colorado Boulder</td>
+                    <td class="orange">O</td>
+                    <td><a href="https://portal.prod.cu.edu/psp/epprod/UCB3/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART">portal.prod.cu.edu</a></td>
+                </tr>
+                <tr>
+                    <td>University of Northern Colorado</td>
+                    <td class="orange">O</td>
+                    <td><a href="https://www.unco.edu/registrar/registration/registration-help.aspx">unco.edu</a></td>
+                </tr>
+                <tr>
+                    <td>Colorado Mountain College</td>
+                    <td class="orange">O</td>
+                    <td><a href="https://coloradomtn.edu/registering-information/">coloradomtn.edu</a></td>
+                </tr>
+                <tr>
+                    <td>University of Colorado Denver</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>University of Colorado Colorado Springs</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>AIMS</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Fort Lewis College</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Western Colorado University</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Regis University</td>
+                    <td class="red">X</td>
+                    <td></td>
+                </tr>
+            </table>
+            <h1>My school isn't on there, but it's working!</h1>
+            Let us know here, and we'll add it to the list!
+            <h1>My school should work, but it does't.</h1>
+            Let us know what's going wrong. We'll fix it as fast as possible for you!
         </div>
+
+
          <svg class="cup-mask-svg" xmlns="http://www.w3.org/2000/svg" width="100vw" height="100%" style="position: absolute; top: 0; left: 0; pointer-events: none;">
             <defs>
               <mask id="cupMask" maskUnits="userSpaceOnUse">
@@ -174,7 +285,7 @@
         window.addEventListener("resize", ()=>{
             reposition();
         });
-        document.getElementById("buyNow").addEventListener("mouseup",()=>{
+        document.getElementById("buyNow").addEventListener("click",()=>{
             // window.open("https://www.google.com/search?q=buy+make+my+schedule+here!&rlz=1C5CHFA_enUS1119US1119&oq=buy+make+my+schedule+here!&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigAdIBCDM5MTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8", '_blank').focus();
         });
     </script>
