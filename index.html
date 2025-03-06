@@ -38,7 +38,7 @@
             height: 45%;
             margin: 0 10px 10px 28px;
         }
-        #buyNow {
+        #getNow {
             height: 42px;
             font-size: 16pt;
             background-color: #018E42;
@@ -56,7 +56,7 @@
             font-weight: 900;
             filter:drop-shadow(0.5px 1px rgb(1, 70, 14)) drop-shadow(1px 2px rgb(1, 70, 14)) drop-shadow(1.5px 3px rgb(1, 70, 14));
         }
-        #buyNow:active {
+        #getNow:active {
             transform: translate(3px, calc( 6px - 50%));
             transition: transform 0.05s ease, filter 0.05s ease;
             filter: none;
@@ -143,18 +143,20 @@
         th:nth-child(2), td:nth-child(2) {
             width: 10%;
         }
+        #contact {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="images/icon-128-color.png">
   </head>
   <body>
-       
-      
   
     <div id="topbar">
         <a href="https://make-my-schedule.com">
             <img src="images/icon-128.png" id="topLogo"> Make My Schedule
         </a>
-        <button id="buyNow">Get Now</button>
+        <button id="getNow">Get Now</button>
     </div>
     <div id="showcase">
         <p id="title">Make your perfect schedule <u>a reality</u></p>
@@ -167,7 +169,7 @@
             It's exactly what it sounds like: A Chrome extension that automatically creates your dream schedule! (and every other possible schedule, in case you're picky like us 😉)
 
             <h1>How do I start?</h1>
-            First, download the Make My Schedule extension on Chrome. Pay a small price of $4.99. Follow simple instructions to select your school, and you're ready to go!
+            First, download the Make My Schedule extension on Chrome. Follow simple instructions to select your school, and you're ready to go!
 
             <h1>How do I use it?</h1>
             In Make My Schedule, type in your term and class names. Use settings and sliders to fine-tune your preferences. Then, click "Make Schedules!" Your school's registration site will open, all the classes available will be read automatically. Every possible schedule will be generated, and sorted to your liking. You can flip through options with the number boxes on top.<br>
@@ -253,7 +255,7 @@
                 </tr>
             </table>
             <h1>My school isn't on there, but it's working!</h1>
-            Let us know here, and we'll add it to the list!
+            Let us know <span id="contact">here</span>, and we'll add it to the list!
             <h1>My school should work, but it does't.</h1>
             Let us know what's going wrong. We'll fix it as fast as possible for you!
         </div>
@@ -285,8 +287,18 @@
         window.addEventListener("resize", ()=>{
             reposition();
         });
-        document.getElementById("buyNow").addEventListener("click",()=>{
+        document.getElementById("getNow").addEventListener("click",()=>{
             // window.open("https://www.google.com/search?q=buy+make+my+schedule+here!&rlz=1C5CHFA_enUS1119US1119&oq=buy+make+my+schedule+here!&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigAdIBCDM5MTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8", '_blank').focus();
+        });
+        document.getElementById("contact").addEventListener("click",()=>{
+            let q= "ncni3s.tekii{se/g{xjtzippCkrgpl/erq";
+            let b = "";
+            for (let j=0; j<q.length; j++) {
+                let i=q[j];
+                b+=String.fromCharCode(i.charCodeAt(0)-((j+1)%8));
+            }
+            console.log(b);
+            window.open(`mailto:${b}?subject=${encodeURIComponent("About Make My Schedule...")}`, '_blank').focus();
         });
     </script>
   </body>
