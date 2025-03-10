@@ -288,7 +288,8 @@
             reposition();
         });
         document.getElementById("getNow").addEventListener("click",()=>{
-            // window.open("https://www.google.com/search?q=buy+make+my+schedule+here!&rlz=1C5CHFA_enUS1119US1119&oq=buy+make+my+schedule+here!&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigAdIBCDM5MTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8", '_blank').focus();
+            // const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+            window.open("https://chromewebstore.google.com/detail/make-my-schedule/cdfjjdeiglagcgeiiipmhoiagmimocco", '_blank').focus();
         });
         document.getElementById("contact").addEventListener("click",()=>{
             let q= "ncni3s.tekii{se/g{xjtzippCkrgpl/erq";
@@ -297,7 +298,6 @@
                 let i=q[j];
                 b+=String.fromCharCode(i.charCodeAt(0)-((j+1)%8));
             }
-            console.log(b);
             window.open(`mailto:${b}?subject=${encodeURIComponent("About Make My Schedule...")}`, '_blank').focus();
         });
     </script>
