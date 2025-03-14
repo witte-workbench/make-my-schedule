@@ -15,16 +15,66 @@
   </head>
   <style>
     body {
-        background: #8e3b46;
-      color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #8e3b46;
+        margin:0;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    #logocontainer {
+        box-sizing: border-box;
+        width: 100%;
+        height: 25vh;
+        color: white;
+        text-align: center;
+        padding-top: 8vh;
+    }
+    #maincontainer {
+        box-sizing: border-box;
+        background: white;
+        width: 100%;
+        min-height: 75vh;
+        border-radius: 60px 60px 0 0;
+        padding: 24px;
+        padding-top: calc((75vh - 280pt) / 2);
+        text-align: center;
+    }
+    #logoimage, #logotitle {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #logoimage {
+        height: 10vh;
+    }
+    #logotitle {
+        font-size: 6vh;
+        line-height: 0;
+        margin-top: 5vh;
+    }
+    #logocontainer a {
+        color: inherit;
+        text-decoration: none;
+    }
+    a {
+        color: inherit;
+    }
+    p, a {
+        font-size: 20pt;
     }
   </style>
     <link rel="icon" type="image/x-icon" href="images/icon-128-color.png">
   <body>
-    <h1>Make My Schedule</h1>
-    <img src="images/icon-128.png">
-    <p style="font-size:42pt;">404</p>
-    <p>Page not found</p>
-    <a id="backHome" href="https://make-my-schedule.com">Take me home</a>
+    <div id="logocontainer">
+        <a href="https://make-my-schedule.com">
+            <img src="images/icon-128.png" id="logoimage">
+            <h1 id="logotitle">Make My Schedule</h1>
+        </a>
+    </div>
+    <div id="maincontainer">
+        <p style="font-size:160pt;font-weight: 900;margin:0;">404</p>
+        <p>Sorry, that page couldn't be found.</p>
+        <a id="backHome" href="https://make-my-schedule.com">Take me home</a>
+    </div>
   </body>
 </html>
