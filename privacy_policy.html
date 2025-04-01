@@ -11,7 +11,7 @@
         padding: 100px 6vw 50px 6vw;
         background-color: #eee;
         justify-content: center;
-        width:calc(445px - 12vw);
+        width: 86vw;
         font-size: 12pt;
     }
     body::-webkit-scrollbar {
@@ -135,13 +135,17 @@
     <br>
     This is a small project, so please be understanding. Rules can be updated and this is just a guideline according to my best knowledge and good faith. If you need anything, please contact me, and we will try to resolve the issue.
     <br><br>
-    <input type="checkbox" id="sendEvents">
-    <label for="sendEvents">Do not send my analytics</label>
-    <br><br>
-    Any questions or requests may be sent to make.my.schedule.extension@gmail.com.
+    Any questions or requests may be sent to <span id="m"></span>.
     <br><br>
 
-    <a href="popup.html" style="text-decoration: underline;">Go back</a>
-    <script src="privacy_policy.js"></script>
+    <script>
+      let q= "ncni3s.tekii{se/g{xjtzippCkrgpl/erq";
+        let b = "";
+        for (let j=0; j<q.length; j++) {
+            let i=q[j];
+            b+=String.fromCharCode(i.charCodeAt(0)-((j+1)%8));
+        }
+      document.getElementById("m").textContent = b;
+    </script>
   </body>
 </html>
