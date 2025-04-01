@@ -13,6 +13,14 @@
     <meta charset="UTF-8" />
     <title>Make My Schedule</title>
     <style>
+        #mainContent {
+            width: 50vw;
+            padding: calc(14vw - 24px) 25vw 15vh 25vw;
+            background-color: #F3F3F3;
+            font-size: 20px;
+            font-weight: 500;
+            mask: url(#cupMask);
+        }
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #8e3b46;
@@ -22,6 +30,7 @@
             display: none;
         }
         #topbar {
+            font-size: 24px;
             position:fixed;
             top:0;
             left:0;
@@ -30,7 +39,6 @@
             line-height: 80px;
             background-color: #8e3b46;
             color: white;
-            font-size: 24px;
             font-weight: bold;
             z-index: 3;
         }
@@ -39,8 +47,8 @@
             margin: 0 10px 10px 28px;
         }
         #getNow {
-            height: 42px;
-            font-size: 16pt;
+            height: 50%;
+            font-size: 24px;
             background-color: #018E42;
             color: white;
             transition: transform 0.05s ease, filter 0.05s ease;
@@ -50,7 +58,7 @@
             transform: translateY(-50%);
             border: 1.5px solid #0FB45B;
             border-radius: 4px;
-            padding:8pt 26px 8pt 26px;
+            padding:8pt 3%;
             line-height: 0;
             cursor: pointer;
             font-weight: 900;
@@ -88,14 +96,6 @@
             width: 70vw;
             border-radius: 22px;
         }
-        #mainContent {
-            width: 50vw;
-            padding: calc(14vw - 24px) 25vw 15vh 25vw;
-            background-color: #F3F3F3;
-            font-size: 20px;
-            font-weight: 500;
-            mask: url(#cupMask);
-        }
         #mainSuper {
             position:absolute;
             top:50vh;
@@ -103,8 +103,7 @@
             margin:0;
             filter: drop-shadow(0 -10px 30px rgba(69, 2, 2, 0.3));
         }
-        h1 {
-            font-size: 24px;
+        h3 {
             font-weight: 900;
             padding: 24px 0 2px 0;
         }
@@ -147,6 +146,21 @@
             text-decoration: underline;
             cursor: pointer;
         }
+        @media all and (orientation:portrait) {
+            #mainContent {
+                width: 80vw;
+                padding: calc(14vw - 24px) 10vw 15vh 10vw;
+                font-size: 40px;
+            }
+            #topbar {
+                font-size: 34px;
+                height: 140px;
+                line-height: 140px;
+            }
+            #getNow {
+                font-size: 34px;
+            }
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="images/icon-128-color.png">
   </head>
@@ -164,18 +178,18 @@
     </div>
     <div id="mainSuper">
         <div id="mainContent">
-            <h1>What is Make My Schedule?</h1>
+            <h3>What is Make My Schedule?</h3>
 
             It's exactly what it sounds like: A Chrome extension that automatically creates your dream schedule! (and every other possible schedule, in case you're picky like us 😉)
 
-            <h1>How do I start?</h1>
+            <h3>How do I start?</h3>
             First, download the Make My Schedule extension on Chrome. Follow simple instructions to select your school, and you're ready to go!
 
-            <h1>How do I use it?</h1>
+            <h3>How do I use it?</h3>
             In Make My Schedule, type in your term and class names. Use settings and sliders to fine-tune your preferences. Then, click "Make Schedules!" Your school's registration site will open, all the classes available will be read automatically. Every possible schedule will be generated, and sorted to your liking. You can flip through options with the number boxes on top.<br>
             When you find one you like, open Make My Schedule and click "Save Schedule". Now, you can view, register, and plan this schedule.
 
-            <h1>Is my school supported?</h1>
+            <h3>Is my school supported?</h3>
             If your school uses Banner Self-Service (aka Ellucian), Make My Schedule should work! If not, you're out of luck. Note that MMS is student made and not officially supported by Ellucian nor any schools. Here is a list of tested and working schools:<br>
             <table>
                 <tr>
@@ -254,9 +268,9 @@
                     <td></td>
                 </tr>
             </table>
-            <h1>My school isn't on there, but it's working!</h1>
+            <h3>My school isn't on there, but it's working!</h3>
             Let us know <span id="contact">here</span>, and we'll add it to the list!
-            <h1>My school should work, but it does't.</h1>
+            <h3>My school should work, but it does't.</h3>
             Let us know what's going wrong. We'll fix it as fast as possible for you!
         </div>
 
