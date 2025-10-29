@@ -325,6 +325,13 @@
             }
             window.open(`mailto:${b}?subject=${encodeURIComponent("About Make My Schedule...")}`, '_blank').focus();
         });
+
+        window.addEventListener("scroll", () => {
+            let previousStyle = document.getElementById("exampleSchedule").style.display;
+            let nextStyle = this.scrollY > window.innerHeight ? "none" : "initial";
+            if (nextStyle !== previousStyle)
+                document.getElementById("exampleSchedule").style.display = nextStyle;
+        });
     </script>
   </body>
 </html>
