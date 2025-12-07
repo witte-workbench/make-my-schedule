@@ -87,7 +87,7 @@
         }
         #title {
             text-wrap: balance;
-            padding-top: 6vh;
+            padding-top: 16vh;
             padding-bottom: 4vh;
         }
         #title, #exampleSchedule {
@@ -99,7 +99,7 @@
         }
         #mainSuper {
             position:absolute;
-            top:50vh;
+            top:60vh;
             left:0;
             margin:0;
             filter: drop-shadow(0 -10px 30px rgba(69, 2, 2, 0.3));
@@ -304,7 +304,7 @@
             let img = document.getElementById("exampleSchedule");
             let rect = img.getBoundingClientRect();
             let sup = document.getElementById("mainSuper");
-            sup.style.top = rect.y+rect.height/3+"px";
+            sup.style.top = rect.y+rect.height/4+"px";
         }
         window.onload = function() {
             reposition();
